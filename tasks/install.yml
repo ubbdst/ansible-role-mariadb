@@ -9,7 +9,7 @@
     gpgkey: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
     gpgcheck: true
   tags: mariadb
-
+  when: "mariadb_distro"
 - name: Install packages
   package:
     name: "{{ item }}"

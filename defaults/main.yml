@@ -74,3 +74,6 @@ mariadb_innodb_strict_mode: 'ON'
 # Custom settings
 
 mariadb_custom_cnf: {}
+
+# set to false to install system mariadb
+mariadb_distro: true
