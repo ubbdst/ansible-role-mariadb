@@ -1,0 +1,19 @@
+- name: "Set VM Swapiness"
+  sysctl:
+    name: "vm.swappiness"
+    value: "1"
+    state: "present"
+
+- name: "make sure service dir exists"
+  file: 
+    path: "/etc/systemd/system/mariadb.service.d"
+    state: "directory"
+
+- name: "Set LimitNOFILE and LimitCORE"
+  template:
+    src: "limitnofile.conf.j2"
+    dest: "/etc/systemd/system/mariadb.service.d/{{ item | regex_replace('\\.j2') }}"
+  with_items:
+  - "limitnofile.conf.j2"
+  -  "limitcore.conf.j2"
+

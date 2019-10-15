@@ -14,3 +14,5 @@
 - include_tasks: root-password.yml
 - include_tasks: databases.yml
 - include_tasks: users.yml
+- include_tasks: optimize-centos7.yml
+  when: "mariadb_distro | bool == false"

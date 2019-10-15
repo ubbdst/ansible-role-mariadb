@@ -2,6 +2,7 @@
 ---
 
 - name: restart mariadb
-  service:
+  systemd:
     name: '{{ mariadb_service }}'
     state: restarted
+    daemon-reload: "yes"
