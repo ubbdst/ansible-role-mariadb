@@ -16,3 +16,4 @@
 - include_tasks: users.yml
 - include_tasks: optimize-centos7.yml
   when: "mariadb_distro | bool == false"
+- import_tasks: backup.yml

@@ -24,3 +24,13 @@ mariadb_custom_cnf: {}
 
 # set to false to install system mariadb
 mariadb_distro: true
+
+# backup variables
+mariadb_backup: false
+mariadb_backup_dir: "/var/backup/mariadb/{{ ansible_hostname }}"
+mariadb_backup_filename_format: "{{ ansible_hostname }}-%F.mysqldump"
+mariadb_cron_hour: "23"
+mariadb_cron_email: false
+mariadb_cron_minute: "0"
+
+mariadb_backup_minimum_expected_size: "20000"
